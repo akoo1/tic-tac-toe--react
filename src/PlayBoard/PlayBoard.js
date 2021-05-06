@@ -102,7 +102,7 @@ const PlayBoard = () => {
 
             return (
               <div
-                className='cell'
+                className={`cell cell-${index}`}
                 onClick={() => cellClickedHandler(index)}
                 key={index}
               >
