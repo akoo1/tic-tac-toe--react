@@ -4,13 +4,10 @@
   width: 100vw;
   /* height: 100vh; */
   display: grid;
+  grid-template-columns: repeat(3, auto);
   /* This centers the containers */
   justify-content: center;
   align-content: center;
-  /* This centers the content in each container */
-  /* justify-items: center;
-  align-items: center; */
-  grid-template-columns: repeat(3, auto);
 }
 
 
@@ -25,12 +22,9 @@
   align-items: center;
   cursor: pointer;
 }
-/* i {
-  transform: scale(0);
+.cell:hover {
+  background-color: skyblue;
 }
-.cell:hover i {
-  transform: scale(1);
-} */
 
 .cell-1,
 .cell-2,
