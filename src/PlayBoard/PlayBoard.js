@@ -29,9 +29,9 @@ const PlayBoard = () => {
   const [xWinCount, setXWinCount] = useState(0)
 
 
-  // I need to call checkForWinner() after setState() is finished, setState() is async, thus,
-  // componentDidUpdate() or useEffect() with dependency is the perfect solution here. It allows
-  // me to do side effects after the component has re-rendered.
+  // I need to call checkForWinner() after setCell() is finished, setState() is async, thus,
+  // "componentDidUpdate()" or "useEffect() with dependency" is the perfect solution here. It allows
+  // me to do side effects, which is call checkForWinner(), after the component has re-rendered.
   useEffect(() => {
     checkForWinner()
   }, [cells])
