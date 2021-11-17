@@ -29,9 +29,9 @@ const PlayBoard = () => {
   const [xWinCount, setXWinCount] = useState(0)
 
 
-  // I need to call checkForWinner() after setCell() is finished, setState() is async, thus,
+  // I need to call checkForWinner() after setCell() is finished. Because setState() is async,
   // "componentDidUpdate()" or "useEffect() with dependency" is the perfect solution here. It allows
-  // me to do side effects, which is call checkForWinner(), after the component has re-rendered.
+  // me to do side effects, which is call checkForWinner(), after setCell() is done re-rendering.
   useEffect(() => {
     checkForWinner()
   }, [cells])
@@ -53,6 +53,8 @@ const PlayBoard = () => {
     })
 
     // Check for a tie
+    // Iterate through the cells array, if any cell is still an empty string, means the game is not over, return.
+    // Else, show the result modal and set isTie.
     // forEach() won't work here because it won't stop even if there's a return statement, a for loop is the solution.
     for (let i = 0; i < cells.length; i += 1) {
       if (cells[i] === '') {
@@ -66,7 +68,7 @@ const PlayBoard = () => {
 
 
 
-  const cellClickedHandler = (index) => {
+  const cellClickedHandler = index => {
     let newCells = [...cells]
     newCells[index] = currPlayer
     setCells(newCells)
